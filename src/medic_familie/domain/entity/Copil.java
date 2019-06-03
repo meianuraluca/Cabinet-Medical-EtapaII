@@ -4,7 +4,9 @@ public class Copil extends Pacient {
     private int persoaneBolnaveFamilie, nrVaccin;
     private String prenumeMama, prenumeTata;
     private String vaccinuri;
-
+    public Copil(){
+        super();
+    }
     public Copil(String name1, String name2, int varsta, String risc, int colest, int tens, boolean asigurat, String tip, int persoaneBolnaveFamilie, int nrVaccin, String prenumeMama, String prenumeTata, String vaccinuri) {
         super(name1, name2, varsta, risc, colest, tens, asigurat,tip);
         this.persoaneBolnaveFamilie = persoaneBolnaveFamilie;

@@ -3,7 +3,11 @@ package medic_familie.domain.entity;
 public class Persoana {
     private String nume,prenume;
     private int varsta;
-
+    public Persoana(){
+        this.nume="";
+        this.prenume="";
+        this.varsta=0;
+    }
     public Persoana(String nume, String prenume, int varsta) {
         this.nume = nume;
         this.prenume = prenume;

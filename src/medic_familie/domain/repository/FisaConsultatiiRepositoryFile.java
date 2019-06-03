@@ -2,15 +2,32 @@ package medic_familie.domain.repository;
 import medic_familie.domain.entity.FisaConsultatii;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.*;
 
 import medic_familie.domain.entity.Analize;
 
 public class FisaConsultatiiRepositoryFile implements FisaConsulatatiiInterface {
-    TreeSet<FisaConsultatii> a = new TreeSet<>();
+    TreeSet<FisaConsultatii> a = new TreeSet<>(new Comparator<FisaConsultatii>() {
+        @Override
+        public int compare(FisaConsultatii o1, FisaConsultatii o2) {
+            if (o1.getAn()>o2.getAn())
+                return 0;
+            else
+                if (o1.getAn()<o2.getAn())
+                    return 1;
+                else
+                    if (o1.getLuna()>o2.getLuna())
+                        return 0;
+                    else
+                        if(o1.getLuna()<o2.getLuna())
+                            return 1;
+                        else
+                            if(o1.getZi()>o2.getZi())
+                                return 0;
+                            return 1;
+
+        }
+    });
 
     public TreeSet<FisaConsultatii> getFise() {
         return a;

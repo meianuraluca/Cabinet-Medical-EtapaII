@@ -13,7 +13,13 @@ public class Pacient extends Persoana {
     public void setFisaConsultatie(FisaConsultatii[] fisaConsultatie) {
         this.fisaConsultatie = fisaConsultatie;
     }
-
+    public Pacient(){
+        super();
+        this.risc="";
+        this.colesterol=0;
+        this.tensiune=0;
+        this.tip="";
+    }
     public Pacient(String nume, String prenume, int varsta, String risc, int colesterol, int tensiune, boolean asigurat,String tip) {
         super(nume, prenume, varsta);
         this.risc = risc;

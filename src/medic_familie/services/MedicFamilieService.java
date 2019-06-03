@@ -1,5 +1,6 @@
 package medic_familie.services;
 
+import medic_familie.Tools.Iesire;
 import medic_familie.configuration.RepositoryConfiguration;
 import medic_familie.domain.entity.*;
 
@@ -9,6 +10,7 @@ import medic_familie.domain.entity.Trimitere;
 import medic_familie.domain.repository.DoctorInterface;
 public class MedicFamilieService {
     public void adaugaAnaliza(Analize set_analize, Pacient pacient, int zi, int luna, int an){
+        Iesire.getInstance().addToFile("Adauga analize");
         FisaConsultatii[] fisa = pacient.getFisaConsultatie();
         if(fisa.length>=1) {
             FisaConsultatii[] newA = new FisaConsultatii[fisa.length + 1];
@@ -36,6 +38,7 @@ public class MedicFamilieService {
 
     }
     public void scrieRetetaAutomat(Pacient pacient, Doctor doctor){
+        Iesire.getInstance().addToFile("Scrie Reteta Automat");
         Reteta reteta = new Reteta();
         reteta.setNume(pacient.getNume());
         reteta.setPrenume(pacient.getPrenume());
@@ -92,6 +95,7 @@ public class MedicFamilieService {
         }
     }
     public void scrieRetetaManual(){
+        Iesire.getInstance().addToFile("Scrie Reteta Manual");
         Reteta reteta = new Reteta();
         System.out.println("Dati numele pacientului");
         Scanner input2 = new Scanner(System.in);
@@ -125,6 +129,7 @@ public class MedicFamilieService {
     }
 
     public void scrieTrimitereAutomat(Pacient pacient, Doctor doctor){
+        Iesire.getInstance().addToFile("Scrie Trimitere Automat");
         Trimitere trimitere = new Trimitere();
         trimitere.setNume(pacient.getNume());
         trimitere.setPrenume(pacient.getPrenume());
@@ -180,6 +185,7 @@ public class MedicFamilieService {
         }
     }
     public void scrieTrimitereManual(){
+        Iesire.getInstance().addToFile("Scrie Trimitere Manual");
         Trimitere trimitere = new Trimitere();
         System.out.println("Dati numele pacientului");
         Scanner input2 = new Scanner(System.in);

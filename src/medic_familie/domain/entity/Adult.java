@@ -4,6 +4,10 @@ public class Adult extends Pacient {
     private boolean fumator;
     private String ocupatie;
 
+    public Adult(){
+        super();
+        this.ocupatie="";
+    }
     public Adult(String name1, String name2, int varsta, String risc, int colest, int tens, boolean asigurat,String tip, boolean fumator, String locMunca) {
         super(name1, name2, varsta, risc, colest, tens, asigurat,tip);
         this.fumator = fumator;

@@ -1,18 +1,16 @@
 package medic_familie.services;
 
-import com.sun.jdi.ThreadReference;
+import medic_familie.Tools.Iesire;
 import medic_familie.configuration.RepositoryConfiguration;
 import medic_familie.domain.entity.Doctor;
 import medic_familie.domain.repository.DoctorInterface;
 
-import javax.print.Doc;
-import java.util.Iterator;
 import java.util.List;
-import java.util.TreeSet;
 
 public class DoctorService {
     DoctorInterface doctor = RepositoryConfiguration.getInstance().getDoctorrepo();
     public void afiseazaDoctori(){
+        Iesire.getInstance().addToFile("Afiseaza Doctori");
         List<Doctor> doctori = doctor.getDoctori();
         System.out.println("Doctorii sunt: ");
         for(int i=0;i<doctori.size();i++) {
@@ -21,6 +19,7 @@ public class DoctorService {
         }
     }
     public String daSpecializare(int cod){
+        Iesire.getInstance().addToFile("Specializarea docturului");
         String specializare="";
         List<Doctor> doctori = doctor.getDoctori();
         for(int i=0;i<doctori.size();i++){
@@ -30,6 +29,7 @@ public class DoctorService {
         return specializare;
     }
     public Doctor daDoctor(int cod){
+        Iesire.getInstance().addToFile("Returneaza doctor");
         List<Doctor> doctori = doctor.getDoctori();
         return doctori.get(cod);
     }

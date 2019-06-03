@@ -1,9 +1,11 @@
 package medic_familie.services;
 
+import medic_familie.Tools.Iesire;
 import medic_familie.domain.entity.Analize;
 
 public class AnalizeService {
     public boolean rezultatAnalize(Analize analiza) {
+        Iesire.getInstance().addToFile("Rezultate analize");
         int nr = 0;
         if (analiza.getCalciu() < 3.83 || analiza.getCalciu() > 5.06) {
             nr++;
@@ -22,6 +24,7 @@ public class AnalizeService {
     }
 
     public void diagnosticAnalize(Analize analize) {
+        Iesire.getInstance().addToFile("Diagnostic analize");
         double nr = analize.getCalciu() - 5.06;
         if (nr > 3) {
             analize.setBolnavCalciu(true);

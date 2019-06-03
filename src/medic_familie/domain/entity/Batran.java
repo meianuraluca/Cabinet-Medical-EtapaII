@@ -3,7 +3,9 @@ package medic_familie.domain.entity;
 public class Batran extends Pacient {
     private int gradSedentarism;
     private boolean fumator;
-
+    public Batran(){
+        super();
+    }
     public Batran(String name1, String name2, int varsta, String risc, int colest, int tens, boolean asigurat,String tip, int gradSedentarism,boolean fumator) {
         super(name1, name2, varsta, risc, colest, tens, asigurat,tip);
         this.gradSedentarism = gradSedentarism;

@@ -9,6 +9,10 @@ import java.util.TimeZone;
 
 public class Iesire {
     static private String fileName = "serviciuAudit.csv";
+    private static Iesire Instance = new Iesire();
+    public static Iesire getInstance(){
+        return Instance;
+    }
     public void addToFile(String comName) {
         File log = new File(fileName);
         try {
@@ -17,7 +21,7 @@ public class Iesire {
 
             sb.append(comName);
             sb.append(",");
-            SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+            SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss ");
             Date date = new Date(System.currentTimeMillis());
             sb.append(formatter.format(date));
             pw.println(sb.toString());

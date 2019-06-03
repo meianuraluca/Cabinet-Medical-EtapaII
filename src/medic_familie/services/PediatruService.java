@@ -1,5 +1,6 @@
 package medic_familie.services;
 
+import medic_familie.Tools.Iesire;
 import medic_familie.domain.entity.Copil;
 import medic_familie.domain.entity.Pacient;
 import medic_familie.domain.entity.Reteta;
@@ -45,6 +46,8 @@ public class PediatruService {
         reteta.setNrPastileZi(nr_pastile);
     }
     public void verficaVaccin(Copil pacient){
+        Iesire.getInstance().addToFile("Verifica vaccin");
+        Iesire.getInstance().addToFile("Verifica vaccin");
         if (pacient.getVarsta() == 4) {
             System.out.println("Copilul trebuie sa faca vaccinul antidifterica");
             int nrVaccinuriActuale =pacient.getNrVaccin();
