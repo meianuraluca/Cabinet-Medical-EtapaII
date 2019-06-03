@@ -1,11 +1,11 @@
 package medic_familie.domain.entity;
 
 public class Analize {
-    private double calciu, glucoza, vitamine, proteine, magneziu;
+    private float calciu, glucoza, vitamine, proteine, magneziu;
     private boolean bolnavCalciu,bolnavGlucoza,bolnavProteine,bolnavMagneziu;
 
 
-    public Analize(double calciu, double glucoza, double vitamine, double proteine, double magneziu) {
+    public Analize(float calciu, float glucoza, float vitamine, float proteine, float magneziu) {
         this.calciu = calciu;
         this.glucoza = glucoza;
         this.vitamine = vitamine;
@@ -22,43 +22,43 @@ public class Analize {
 
     }
 
-    public void setCalciu(double calciu) {
+    public void setCalciu(float calciu) {
         this.calciu = calciu;
     }
 
-    public void setGlucoza(double glucoza) {
+    public void setGlucoza(float glucoza) {
         this.glucoza = glucoza;
     }
 
-    public void setVitamine(double vitamine) {
+    public void setVitamine(float vitamine) {
         this.vitamine = vitamine;
     }
 
-    public void setProteine(double proteine) {
+    public void setProteine(float proteine) {
         this.proteine = proteine;
     }
 
-    public void setMagneziu(double magneziu) {
+    public void setMagneziu(float magneziu) {
         this.magneziu = magneziu;
     }
 
-    public double getCalciu() {
+    public float getCalciu() {
         return calciu;
     }
 
-    public double getGlucoza() {
+    public float getGlucoza() {
         return glucoza;
     }
 
-    public double getVitamine() {
+    public float getVitamine() {
         return vitamine;
     }
 
-    public double getProteine() {
+    public float getProteine() {
         return proteine;
     }
 
-    public double getMagneziu() {
+    public float getMagneziu() {
         return magneziu;
     }
 

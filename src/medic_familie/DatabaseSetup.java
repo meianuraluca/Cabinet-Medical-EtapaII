@@ -7,7 +7,6 @@ public class DatabaseSetup {
         return instance;
     }
     public static void initDatabase() {
-        System.out.println("aaaaaaaaaaaaaaaaaa");
         String Query;
         try(Connection connection = ConnectionFactory.getConnection()){
             Statement stmt = connection.createStatement();
@@ -80,6 +79,28 @@ public class DatabaseSetup {
             Query = "INSERT INTO batran VALUES('Budascu','Alexandra',80,190,12,false,'batran',3,true)";
             stmt.executeUpdate(Query);
             Query = "INSERT INTO batran VALUES('Aledea','Sorina',90,180,11,true,'batran',2,true)";
+            stmt.executeUpdate(Query);
+
+
+            Query = "DROP TABLE fise IF EXISTS";
+            stmt.executeUpdate(Query);
+            Query = "CREATE TABLE fise (" +
+                    "nume varchar2(300)," +
+                    "prenume varchar2(300),"+
+                    "an number(5)," +
+                    "luna number(2)," +
+                    "zi number(3)," +
+                    "calciu float(4)," +
+                    "glucoza float(4)," +
+                    "vitamine float(4)," +
+                    "proteine float(4)," +
+                    "mangneziu float(5))";
+            stmt.executeUpdate(Query);
+            Query = "INSERT INTO fise VALUES('Meianu','Teodora',1999,8,12,23,43,107,45,89)";
+            stmt.executeUpdate(Query);
+            Query = "INSERT INTO fise VALUES('Smaranda','Andrei',2010,9,23,34,76,100,54,23)";
+            stmt.executeUpdate(Query);
+            Query = "INSERT INTO fise VALUES('Gavrila','Andrada',2018,10,28,56,89,109,75,54)";
             stmt.executeUpdate(Query);
 
         }

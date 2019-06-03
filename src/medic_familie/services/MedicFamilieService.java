@@ -1,18 +1,16 @@
 package medic_familie.services;
 
 import medic_familie.Tools.Iesire;
-import medic_familie.configuration.RepositoryConfiguration;
 import medic_familie.domain.entity.*;
+import medic_familie.domain.repository.FisaConsultatiiRepositoryDB;
 
-import java.util.List;
 import java.util.Scanner;
-import medic_familie.domain.entity.Trimitere;
-import medic_familie.domain.repository.DoctorInterface;
+
 public class MedicFamilieService {
-    public void adaugaAnaliza(Analize set_analize, Pacient pacient, int zi, int luna, int an){
+    public void adaugaAnaliza(Analize set_analize, Pacient pacient, int zi, int luna, int an) {
         Iesire.getInstance().addToFile("Adauga analize");
         FisaConsultatii[] fisa = pacient.getFisaConsultatie();
-        if(fisa.length>=1) {
+        if (fisa.length >= 1) {
             FisaConsultatii[] newA = new FisaConsultatii[fisa.length + 1];
             for (int i = 0; i < fisa.length; i++) {
                 newA[i].setAn(fisa[i].getAn());
@@ -27,16 +25,16 @@ public class MedicFamilieService {
             newA[newA.length - 1].setAn(an);
             newA[newA.length - 1].setSetAnalize(set_analize);
             fisa = newA;
-        }
-        else {
+        } else {
 
-            FisaConsultatii[] fisa_consultatie = new FisaConsultatii[]{new FisaConsultatii(2019,3,30,set_analize)};
+            FisaConsultatii[] fisa_consultatie = new FisaConsultatii[]{new FisaConsultatii(pacient.getNume(),pacient.getPrenume(),2019, 3, 30, set_analize)};
             pacient.setFisaConsultatie(fisa_consultatie);
+            FisaConsultatiiRepositoryDB fise = FisaConsultatiiRepositoryDB.getInstance();
+            FisaConsultatii fisa1 = new FisaConsultatii(pacient.getNume(), pacient.getPrenume(), an, luna, zi, set_analize);
+            fise.insertFise(fisa1);
         }
-
-
-
     }
+
     public void scrieRetetaAutomat(Pacient pacient, Doctor doctor){
         Iesire.getInstance().addToFile("Scrie Reteta Automat");
         Reteta reteta = new Reteta();

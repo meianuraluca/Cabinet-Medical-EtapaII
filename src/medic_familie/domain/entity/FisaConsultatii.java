@@ -3,9 +3,15 @@ package medic_familie.domain.entity;
 public class FisaConsultatii {
     private int an, zi ,luna;
     private Analize setAnalize;
-    private String diagnostic;
-
-    public FisaConsultatii(int an, int luna , int zi,Analize setAnalize) {
+    private String diagnostic, nume, prenume;
+    public FisaConsultatii(){
+        an = 0;
+        zi = 0;
+        luna = 0;
+    }
+    public FisaConsultatii(String nume,String prenume,int an, int luna , int zi,Analize setAnalize) {
+        this.nume = nume;
+        this.prenume = prenume;
         this.an = an;
         this.luna = luna;
         this.zi = zi;
@@ -45,6 +51,22 @@ public class FisaConsultatii {
         return zi;
     }
 
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public String getPrenume() {
+        return prenume;
+    }
+
+    public void setPrenume(String prenume) {
+        this.prenume = prenume;
+    }
+
     public int getLuna() {
         return luna;
     }
@@ -57,6 +79,16 @@ public class FisaConsultatii {
         this.diagnostic = diagnostic;
     }
 
+    public Analize getSetAnalize() {
+        return setAnalize;
+    }
+    public void setSetAnalize(float a, float b,float c, float d, float e){
+        setAnalize.setCalciu(a);
+        setAnalize.setGlucoza(b);
+        setAnalize.setVitamine(c);
+        setAnalize.setProteine(d);
+        setAnalize.setMagneziu(e);
+    }
     public int getAn() {
         return an;
     }

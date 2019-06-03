@@ -10,7 +10,7 @@ public class Start {
     public static void main(String[] args){
         DatabaseSetup datebase = DatabaseSetup.getInstance();
         datebase.initDatabase();
-        //Application.launch(args);
+       // Application.launch(args);
         System.out.println("Bine ati venit la cabinetul nostru");
         System.out.println("Alegeti codul unuia dintre doctorii nostri");
         DoctorService doctori = new DoctorService();
@@ -35,6 +35,7 @@ public class Start {
         String tip = input3.nextLine();
         System.out.println("Se cauta pacientul in baza de date ");
         Pacient pacient = pacienti.cautaPacient(nume, prenume,tip);
+
         if(specializare.equals("pediatru") && pacient != null) {
             Copil copil = (Copil) pacient;
             System.out.println("Introdu 1 -- pentru a scrie o trimitere\nIntrodu 2 -- pentru a verifica daca copilul are nevoie de vreun vaccin\nIntrodu 3 -- pentru a scrie o reteta ");
@@ -103,15 +104,15 @@ public class Start {
                         break;
                     }
                     case 3: {
-                        if (pacienti.tipPacient(pacient).equals("copil")) {
+                        if (tip.equals("copil")) {
                             pacient = (Copil) pacient;
                             ((Copil) pacient).riscCardiovascular();
                         }
-                        if (pacienti.tipPacient(pacient).equals("adult")) {
+                        if (tip.equals("adult")) {
                             pacient = (Adult) pacient;
                             ((Adult) pacient).riscCardiovascular();
                         }
-                        if (pacienti.tipPacient(pacient).equals("batran")) {
+                        if (tip.equals("batran")) {
                             pacient = (Batran) pacient;
                             ((Batran) pacient).riscCardiovascular();
                         }
@@ -157,7 +158,7 @@ public class Start {
     }
 //    @Override
 //    public void start(Stage primaryStage) throws Exception {
-//        URL resource = getClass().getResource("Main_view.fxml");
+//        URL resource = getClass().getResource("Prima.fxml");
 //        Parent root = FXMLLoader.load(resource);
 //        primaryStage.setScene(new Scene(root,800,500));
 //        primaryStage.show();
